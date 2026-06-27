@@ -1,0 +1,116 @@
+.textarea {
+    position: relative;
+    bottom: 0;
+    width: 100%; 
+    background: transparent;
+    display: flex;
+    align-items: flex-end;
+    box-sizing: border-box;
+    padding: 0 var(--margin); 
+    flex-shrink: 0;
+    justify-content: space-between;
+}
+
+textarea {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    border: none;
+    outline: none;
+    resize: none;
+    max-height: calc(1.5em * 6);
+    background: transparent;
+    line-height: 1.5em;
+    caret-color: var(--tg-theme-button-color);
+    color: var(--tg-theme-text-color);
+    padding: 0;
+    margin: 0;
+}
+textarea::placeholder {
+    color: var(--tg-theme-subtitle-text-color);
+}
+
+.textarea-center {
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start;
+    flex-grow: 1; 
+    padding-left: 12px;
+    box-sizing: border-box;
+    min-height: 45px; 
+    overflow: hidden;
+}
+
+/* Кнопка Эмодзи — всегда в потоке, имеет фиксированную ширину */
+.emoji-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 12px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    align-self: flex-end; 
+    box-sizing: border-box;
+    width: 44px;
+    height: 45px; 
+    flex-shrink: 0; /* Чтобы кнопка не сжималась при длинном тексте */
+}
+
+/* Кнопка отправки — по умолчанию сжата в 0px */
+.send-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    align-self: flex-end; 
+    box-sizing: border-box;
+    flex-shrink: 0;
+    
+    /* Изначальное скрытое состояние */
+    width: 0;
+    height: 45px;
+    padding: 12px 0; /* Сбрасываем боковые паддинги в ноль */
+    opacity: 0;
+    overflow: hidden; /* Скрывает SVG внутри, пока ширина равна 0 */
+    transform: scale(0.8);
+    
+    /* Плавная анимация появления */
+    transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+                padding 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.2s ease, 
+                transform 0.2s ease;
+}
+
+/* --- Логика при вводе текста --- */
+
+/* Нам больше не нужно принудительно двигать .emoji-btn через transform! */
+/* Flexbox автоматически подвинет её левее, когда .send-btn займет место в таблице */
+
+/* Проявляем и расширяем кнопку отправки справа от эмодзи */
+#messages-textarea:not(:placeholder-shown) ~ .send-btn {
+    width: 44px;
+    padding: 12px;
+    opacity: 1; 
+    transform: scale(1);  
+}
+
+/* ОБЛАСТЬ СООБЩЕНИЙ */
+.messages-area {
+  display: flex;
+  flex-direction: column-reverse;
+  flex-grow: 1;     
+  gap: 10px;
+  padding: 0 30px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.bottom-bar {
+  bottom: 0;
+}
+

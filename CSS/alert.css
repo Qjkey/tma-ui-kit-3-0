@@ -1,0 +1,57 @@
+.d-alert-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+.d-alert-box {
+    background: color-mix(in srgb, var(--tg-theme-bg-color) 80%, transparent);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    color: var(--tg-theme-text-color);
+    width: 320px;
+    padding: 20px 8px 8px 20px;
+    border-radius: var(--radius); 
+    transform: scale(0.9);
+    transition: transform 0.2s ease;
+}
+.d-alert-overlay.active { opacity: 1; }
+.d-alert-overlay.active .d-alert-box { transform: scale(1); }
+.d-alert-title {
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+.d-alert-description {
+    color: var(--tg-theme-text-color);
+    margin-bottom: 24px;
+    opacity: 0.9;
+}
+.d-alert-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 7px;
+}
+.d-alert-btn {
+    background: transparent;
+    border: none;
+    color: var(--tg-theme-button-color, #2481cc);
+    cursor: pointer;
+    min-width: 60px;
+    padding: 10px; 
+    border-radius: 100px; 
+    font-weight: 500;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+.d-alert-btn.danger {
+    color: var(--tg-theme-destructive-text-color, #e53935); 
+}

@@ -1,0 +1,76 @@
+.item {
+    padding-left: var(--margin);
+    display: flex;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden; 
+}
+.header .item {
+    padding-left: 0;
+}
+.item .separator {
+    border-bottom: 0.5px solid var(--tg-theme-section-separator-color);
+}
+.item .right {
+    display: flex;
+    padding-right: var(--otstup);
+    width: 100%;
+}
+.item .left {
+    display: flex;
+    place-items: center;
+    margin-right: 14px;
+    text-decoration: none;
+}
+.item .second-left {
+    display: flex;
+    place-items: center;
+    margin-right: 9px;
+    text-decoration: none;
+}
+.item .ava {
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+}
+.item .icon {
+    width: 42px;
+}
+.item .text {
+    width: 100%;
+}
+.item .text.oneline {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.item .text.twoline {
+    padding-top: 9px;
+    padding-bottom: 9px;
+}
+.item .text.header {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    text-align: center;
+}
+.item .element {
+    display: flex;
+    white-space: nowrap;
+    place-items: center;
+    text-decoration: none;
+}
+.item .element-header {
+    display: flex;
+    white-space: nowrap;
+    place-items: center;
+    text-decoration: none;
+    height: 56px;
+}
+.item .element svg {
+    stroke: var(--tg-theme-hint-color);
+}
+.item.footer {
+    margin-top: 6px;
+    margin-left: 5px;
+    margin-bottom: 20px;
+    color: var(--tg-theme-subtitle-text-color);
+}

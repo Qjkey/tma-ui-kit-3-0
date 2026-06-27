@@ -1,0 +1,27 @@
+.big-header {
+    align-items: center;
+    text-align: center;
+    padding: 24px 28px;
+}
+.big-header img {
+    width: 100px;
+}
+.big-header-title {
+    margin-bottom: 12px;
+    margin-top: 8px;
+}
+.info_block {
+    display: grid;
+    grid-template-columns: 45px auto;
+    padding: 15px 40px 0px 20px;
+}
+.icon_info_block {
+    text-align: center;
+    width: 30px;
+    height: 30px;
+}
+.text_info_block {
+    text-align: left;
+    margin-bottom: 15px;
+    gap: 3px;
+}

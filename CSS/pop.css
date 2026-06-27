@@ -1,0 +1,86 @@
+.custom-toast {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #2b2b2bd8;
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border-radius: 14px;
+  padding: 10px;
+  pointer-events: auto;
+  user-select: none;
+  touch-action: none;
+  max-height: 200px; 
+  overflow: hidden;
+  box-sizing: border-box;
+  cursor: grab;
+  animation: slideIn 0.25s ease-out forwards;
+}
+
+.custom-toast:active {
+  cursor: grabbing; /* Кулак при зажатии */
+}
+
+/* Блок с иконкой и текстом (слева) */
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+}
+
+/* Иконка восклицательного знака */
+.toast-icon svg {
+  width: 32px;
+  height: 32px;
+  fill: #fff;
+  display: block;
+}
+
+/* Текстовый блок */
+.toast-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.toast-description {
+  color: #fff;
+}
+
+/* Кнопка действия (справа) */
+.toast-action-btn {
+  background: none;
+  border: none;
+  color: var(--tg-theme-button-color);
+  cursor: pointer;
+  padding: 8px;
+  transition: color 0.2s;
+  border-radius: 8px;
+}
+
+.custom-toast.hide-down {
+  animation: slideOut 0.22s ease-in forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+}

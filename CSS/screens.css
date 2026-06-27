@@ -1,0 +1,91 @@
+.screen {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  background-color: var(--tg-theme-secondary-bg-color);
+  transform: translateX(100%);
+  transition: transform 0.18s ease; 
+  will-change: transform;
+  
+  /* Отключаем резиновый отскок намертво для Android/Chrome и iOS */
+  overscroll-behavior: none !important; 
+  overscroll-behavior-y: none !important;
+  
+  /* Убираем инерционный нативный скролл iOS, который вызывает растяжение */
+  -webkit-overflow-scrolling: auto !important; 
+  
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+body.screens-active {
+  overscroll-behavior: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+.screen.active {
+  transform: translateX(0);
+  pointer-events: auto;
+}
+.screen.hidden {
+  display: none;
+}
+[data-screen].swiping * {
+  pointer-events: none !important;
+}
+.messages.screen {
+  display: flex !important;   
+  flex-direction: column-reverse;  
+  overflow-y: auto;          
+  overflow-x: hidden;
+  background-color: transparent;
+}
+@media (max-width: 600px) {
+  .screen {
+    height: 100dvh;
+  }
+
+  .messages.screen {
+    height: 100dvh;
+    background-color: transparent !important; 
+    background-position: center, center, center;
+    background-image: var(--first-gradient), 
+                      var(--bg-image), 
+                      var(--main-gradient);
+    background-blend-mode: var(--blend-mode);
+  }
+}
+@media (min-width: 601px) {
+    .screen {
+      position: absolute;
+      height: 100%;
+      border-radius: var(--radius);
+    }
+
+    .messages.screen {
+      position: relative;
+      transform: none;
+      transition: none;
+      width: auto;
+      height: 100dvh;
+      flex-grow: 1;
+      background-color: transparent;
+    }
+
+    .page {
+        width: 500px;
+        height: calc(100% - 2*(var(--margin)));
+        max-height: 800px;
+        border-radius: var(--radius);
+    }
+
+    .chats {
+        width: calc(var(--width-chat-list));
+        height: calc(100% - 2*(var(--margin)));
+        margin: var(--margin) 0 var(--margin) var(--margin);
+        box-sizing: border-box;
+        border-radius: var(--radius);
+    }
+}

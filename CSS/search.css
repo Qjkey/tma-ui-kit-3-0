@@ -1,0 +1,59 @@
+/* Контейнер поиска во всю ширину с учетом внешних отступов */
+.header-capsule.search-container {
+    width: calc(100% - (var(--margin) * 2));
+    margin: 10px var(--margin);
+    height: 36px;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 10px;
+    position: relative;
+}
+
+/* ИСПРАВЛЕНО: Стили теперь применяются непосредственно к инпуту */
+.search-container .search-input {
+    flex-grow: 1;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    font-family: "Roboto";
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--tg-theme-text-color);
+}
+
+/* Стили для placeholder (подсказки) */
+.search-container .search-input::placeholder {
+    font-family: "Roboto";
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--tg-theme-hint-color);
+}
+
+/* Стили для иконки лупы */
+.search-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--tg-theme-hint-color);
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+
+/* Кнопка очистки (крестик) */
+.clear-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: 10px;
+    cursor: pointer;
+    display: none; /* Скрыта по умолчанию */
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Показываем крестик, только когда в инпуте есть текст */
+.search-container:has(.search-input:not(:placeholder-shown)) .clear-btn {
+    display: flex;
+}
