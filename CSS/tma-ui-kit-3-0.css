@@ -1405,9 +1405,13 @@ body.screens-active {
 }
 @media (min-width: 601px) {
     .screen {
-      position: absolute;
-      height: 100%;
-      border-radius: var(--radius);
+        position: absolute;
+        height: 100%;
+        border-radius: var(--radius);
+
+        outline: 1px solid var(--tg-theme-secondary-bg-color);
+        outline-offset: -1px;
+        will-change: transform, outline;
     }
 
     .messages.screen {
